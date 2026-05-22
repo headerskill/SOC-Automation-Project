@@ -19,7 +19,8 @@ and analysis of alerts generated within the SOC environment.
 <img width="506" height="452" alt="image" src="https://github.com/user-attachments/assets/b875b974-f0bc-4930-8f77-fc4ca6f00d76" />
 
 
-## vm Required Windows 10 ,
+## Requirments
+* Virtual machihne, Windows 10 , ubuntu , wazuh , TheHive, Suffle , Sysmon
 
 ## Insatalling the sysmon on the Windows 10 vm 
 * To download the sysmon: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon

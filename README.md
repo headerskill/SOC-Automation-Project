@@ -28,3 +28,10 @@ and analysis of alerts generated within the SOC environment.
 ** Step1 : Extract the symon and copy the sysmonfig.xml file to the sysmon directory.
 Step 2: Open the powershell in the administrator mode then change the directory where sysmon is install 
 Step 3: Use commnad .\Sysmon64.exe -i .\sysmonconfig.xml to install the configure file on the powershell
+
+# Installing the wazhu server in the ubuntu 
+* get-apt update && get-upgrade -y
+* curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a --ignore-check
+* After installation you will get the credentail that is needed to login to wazuh
+* launch the wazuh using the web brower with your host ip : https:\\198.2.x.x , and use the advance option to proceed to the site.
+* 

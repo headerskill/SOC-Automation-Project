@@ -64,4 +64,4 @@ sudo apt install elasticsearch
 #### 
 wget https://thehive.download.strangebee.com/5.7/deb/thehive_5.7.2-1_all.deb
 sudo apt install ./thehive_5.7.2-1_all.deb
-
+## Configuring TheHive 

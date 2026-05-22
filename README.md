@@ -3,7 +3,16 @@ Using wazuh , Hive and Suffle
 
 
 # Scope of the Project
-* Designing, setupping, configuring , telementry , SOAR function
+The scope of this project is to design and implement a small-scale SOC automation environment using Wazuh, Shuffle, and TheHive within a virtualized lab setup. The project focuses on collecting and monitoring endpoint logs from Windows systems, detecting suspicious activities, automating alert processing, and managing incident response cases.
+
+The project includes:
+
+deployment and configuration of Wazuh for centralized log collection and threat detection,
+installation of Sysmon for advanced Windows event logging,
+integration of Shuffle to automate security workflows and alert handling,
+integration of TheHive for incident and case management,
+simulation of cyber attack scenarios such as brute force attacks and suspicious PowerShell activity,
+and analysis of alerts generated within the SOC environment.
 
 
 ## Creating a Diagram

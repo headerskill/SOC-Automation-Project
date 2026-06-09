@@ -1,11 +1,17 @@
 # SOC-Automation-Project
-Using wazuh , Hive and Suffle
+Using wazuh , TheHive and Suffle
 
 
 # Scope of the Project
-The scope of this project is to design and implement a small-scale SOC automation environment using Wazuh, Shuffle, and TheHive within a virtualized lab setup. The project focuses on collecting and monitoring endpoint logs from Windows systems, detecting suspicious activities, automating alert processing, and managing incident response cases.
+The scope of this project is to design and implement a small-scale SOC automation environment using Wazuh, Shuffle, and TheHive within a virtualized lab setup. The project focuses on collecting and monitoring endpoint logs from Windows systems, detecting suspicious activities, automating alert processing, and managing incident response cases. The senario include the use of Mimimkatz, which is used in the winodws for credentailas dumping.
 
+## Requirments
+* Virtual machihne, Windows 10 , ubuntu , wazuh , TheHive, Suffle , Sysmon
+  
 The project includes:
+Wazuh for SIEM and XDR
+TheHive for Case Management
+Suffle for SOAR 
 
 deployment and configuration of Wazuh for centralized log collection and threat detection,
 installation of Sysmon for advanced Windows event logging,
@@ -15,21 +21,25 @@ simulation of cyber attack scenarios such as brute force attacks and suspicious 
 and analysis of alerts generated within the SOC environment.
 
 
-## Data flow Diagram
+## Desigining the Data flow Diagram
 <img width="506" height="452" alt="image" src="https://github.com/user-attachments/assets/b875b974-f0bc-4930-8f77-fc4ca6f00d76" />
 
 
-## Requirments
-* Virtual machihne, Windows 10 , ubuntu , wazuh , TheHive, Suffle , Sysmon
+
 
 ## Insatalling the sysmon on the Windows 10 vm 
+
 * To download the sysmon: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
 * To download the config file : https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml
 ** Step1 : Extract the symon and copy the sysmonfig.xml file to the sysmon directory.
 Step 2: Open the powershell in the administrator mode then change the directory where sysmon is install 
-Step 3: Use commnad .\Sysmon64.exe -i .\sysmonconfig.xml to install the configure file on the powershell
+Step 3: Use commnad: .\Sysmon64.exe -i .\sysmonconfig.xml to install the configure file on the powershell
+Step4: check by using event viewer  applicatons and service logs > microsoft > windows > sysmon if it was sucessfully installed
 
 # Installing the wazhu server in the ubuntu 
+https://documentation.wazuh.com/current/quickstart.html
+https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
+
 * get-apt update && get-upgrade -y
 * curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a --ignore-check
 * After installation you will get the credentail that is needed to login to wazuh
@@ -37,6 +47,9 @@ Step 3: Use commnad .\Sysmon64.exe -i .\sysmonconfig.xml to install the configur
 *
 
 # Installing the theHive
+
+https://docs.strangebee.com/thehive/installation/installation-guide-linux-standalone-server/
+
 Dependences
 apt install wget gnupg apt-transport-https git ca-certificates ca-certificates-java curl  software-properties-common python3-pip lsb-release
 
@@ -48,7 +61,7 @@ sudo apt install java-common java-11-amazon-corretto-jdk
 echo JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto" | sudo tee -a /etc/environment 
 export JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto"
 
-#### Install Cassandra
+#### Install Apache Cassandra
 wget -qO -  https://downloads.apache.org/cassandra/KEYS | sudo gpg --dearmor  -o /usr/share/keyrings/cassandra-archive.gpg
 echo "deb [signed-by=/usr/share/keyrings/cassandra-archive.gpg] https://debian.cassandra.apache.org 40x main" |  sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 sudo apt update
@@ -64,4 +77,61 @@ sudo apt install elasticsearch
 #### 
 wget https://thehive.download.strangebee.com/5.7/deb/thehive_5.7.2-1_all.deb
 sudo apt install ./thehive_5.7.2-1_all.deb
+
+## Configuring the Wazuh 
+
+configuring the cassandra
+Directory :  /etc/cassandra/cassandra.yml
+ Change the following according to your host ip address
+ clustername
+<img width="133" height="36" alt="image" src="https://github.com/user-attachments/assets/45b80c12-a990-43b0-a149-5af59ea7c8c1" />
+listen address
+<img width="202" height="49" alt="image" src="https://github.com/user-attachments/assets/9536081f-28c8-4cd7-8df2-b903190ea049" />
+
+rpc_address
+<img width="154" height="27" alt="image" src="https://github.com/user-attachments/assets/a91c04e5-12fe-45bf-9541-263200879217" />
+
+seed_provider: - seeds:
+<img width="194" height="43" alt="image" src="https://github.com/user-attachments/assets/d3107a99-3c7b-4d11-a624-3421ff1d8281" />
+
+Always restart the service once the configuration is made.
+<img width="226" height="61" alt="image" src="https://github.com/user-attachments/assets/e509f453-7e72-4ec7-a7aa-1b01ed5ae165" />
+
+To check the status use: systemctl status cassabdra.service
+
+
+Configuting the elastic 
+Directory : /etec/elasticsearch/elasticsearch.yml
+<img width="188" height="130" alt="image" src="https://github.com/user-attachments/assets/c0b1133e-ea2b-4a1e-a29c-7b4553559f31" />
+<img width="160" height="21" alt="image" src="https://github.com/user-attachments/assets/e64f4755-9581-4031-9d9b-8b78cc917ddf" />
+<img width="248" height="187" alt="image" src="https://github.com/user-attachments/assets/09187097-785b-495e-8382-8cc66e8a7dcc" />
+<img width="346" height="111" alt="image" src="https://github.com/user-attachments/assets/49bef8f3-38f7-4ab0-8a42-23e61e10ca63" />
+
 ## Configuring TheHive 
+Changing the permisson to the directory
+<img width="298" height="21" alt="image" src="https://github.com/user-attachments/assets/8576e371-67cd-463e-ab55-f60278c40b41" />
+
+<img width="242" height="56" alt="image" src="https://github.com/user-attachments/assets/ee34490e-9500-494c-9fce-b0d7257bd4d3" />
+
+Directory : /etc/thehive/application.conf
+<img width="241" height="211" alt="image" src="https://github.com/user-attachments/assets/ae7b3b4b-c84b-4248-a1a2-8cca37ba03ab" />
+
+<img width="243" height="52" alt="image" src="https://github.com/user-attachments/assets/0c34ced2-fad9-45ca-8490-486f05e82f23" />
+<img width="245" height="55" alt="image" src="https://github.com/user-attachments/assets/1d2ec92f-fa43-4ad3-ae39-9a04e609474d" />
+
+
+Configuring the wauzh agent 
+<img width="1723" height="782" alt="image" src="https://github.com/user-attachments/assets/c27b300d-bdbf-412d-896c-14167e481603" />
+
+After that open the powershell in administaration mode and past the command you get will configuting the agent on wauzh 
+to start : net start wauzh on powershell
+
+
+## Geneating the temeletry 
+
+
+
+
+
+### SOAR 
+

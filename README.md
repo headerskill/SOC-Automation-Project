@@ -126,6 +126,36 @@ Configuring the wauzh agent
 After that open the powershell in administaration mode and past the command you get will configuting the agent on wauzh 
 to start : net start wauzh on powershell
 
+Confifguring the ossce file on the machine where agent is installed.
+<img width="552" height="291" alt="image" src="https://github.com/user-attachments/assets/69d1059b-9a4b-4d2c-9072-0bde8d16d55f" />
+
+now you can see the sysmson log on your wazuh dashboard
+<img width="946" height="763" alt="image" src="https://github.com/user-attachments/assets/b26ba582-cfe4-4f36-bd73-11d85c3bd237" />
+
+To generate the mimikatz on the wauzuh you need to create the rule
+
+
+configuring the osec file 
+<img width="1284" height="648" alt="image" src="https://github.com/user-attachments/assets/de3d8fcb-0f2a-4e73-b580-37a2fdfaddf7" />
+
+configuring the filebeat
+<img width="973" height="857" alt="image" src="https://github.com/user-attachments/assets/d6ac9485-6d5f-4f98-b214-8b5e28961b2a" />
+
+creating the index
+
+<img width="1034" height="642" alt="image" src="https://github.com/user-attachments/assets/4ab28fe2-94a0-4447-8c10-b0fd9dab7d48" />
+<img width="1234" height="363" alt="image" src="https://github.com/user-attachments/assets/cf6b3f7d-8489-421e-a8d6-799aa30d66a9" />
+<img width="658" height="676" alt="image" src="https://github.com/user-attachments/assets/1fe9113d-fc3f-46a9-8215-5ce21672f293" />
+<img width="935" height="278" alt="image" src="https://github.com/user-attachments/assets/2b373aba-35b6-40b1-b278-624897042f67" />
+<img width="685" height="352" alt="image" src="https://github.com/user-attachments/assets/e54b6ca1-c57e-4a25-88ff-9f9217495162" />
+<img width="989" height="539" alt="image" src="https://github.com/user-attachments/assets/e8328f12-714b-4c33-9cfd-a9d44118eb1c" />
+<img width="988" height="724" alt="image" src="https://github.com/user-attachments/assets/1693d92e-dc35-4998-bc76-c6f068b46dce" />
+<img width="1015" height="174" alt="image" src="https://github.com/user-attachments/assets/182723f2-a62a-4154-b4eb-64f9cd6c0862" />
+
+
+
+Adding the rules
+<img width="1582" height="807" alt="image" src="https://github.com/user-attachments/assets/285e7f0f-fd4e-4652-857f-210fafa93483" />
 
 ## Geneating the temeletry 
 

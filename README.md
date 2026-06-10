@@ -167,4 +167,24 @@ Adding the rules
 
 
 ### SOAR 
+step 1: use the webhook , can copy the webhookurl
+<img width="1451" height="696" alt="image" src="https://github.com/user-attachments/assets/d2795441-99e7-4896-88db-d9cfd715a0b9" />
+
+
+step 2: modify wauzh manger ossec config file to connect to the webhook
+<img width="1012" height="705" alt="image" src="https://github.com/user-attachments/assets/6d0a4b0a-3386-4775-aad1-3f507dae3afb" />
+
+
+step 3: chaning the change me to refex capture group to extract the sha256
+<img width="646" height="561" alt="image" src="https://github.com/user-attachments/assets/83203005-f845-42d9-89cf-50527bcb630e" />
+
+
+step4: connecting the regex to virus total and getting the report on the sha256 using the virus total api key.
+<img width="454" height="506" alt="image" src="https://github.com/user-attachments/assets/1a2b37db-da55-4bcc-bcb0-d41fd903b83f" />
+<img width="514" height="360" alt="image" src="https://github.com/user-attachments/assets/a0352ca3-b930-4e52-88ed-15435e6ae75d" />
+<img width="512" height="1105" alt="image" src="https://github.com/user-attachments/assets/8cd236fd-9b78-4094-8b75-703202a107e0" />
+<img width="852" height="670" alt="image" src="https://github.com/user-attachments/assets/7e502296-2010-491b-baf6-e37ef2c0da11" />
+
+
+
 

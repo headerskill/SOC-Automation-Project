@@ -83,16 +83,12 @@ sudo apt install ./thehive_5.7.2-1_all.deb
 configuring the cassandra
 Directory :  /etc/cassandra/cassandra.yml
  Change the following according to your host ip address
- clustername
-<img width="133" height="36" alt="image" src="https://github.com/user-attachments/assets/45b80c12-a990-43b0-a149-5af59ea7c8c1" />
-listen address
-<img width="202" height="49" alt="image" src="https://github.com/user-attachments/assets/9536081f-28c8-4cd7-8df2-b903190ea049" />
+ clustername: <img width="133" height="36" alt="image" src="https://github.com/user-attachments/assets/45b80c12-a990-43b0-a149-5af59ea7c8c1" />
+listen address: <img width="202" height="49" alt="image" src="https://github.com/user-attachments/assets/9536081f-28c8-4cd7-8df2-b903190ea049" />
 
-rpc_address
-<img width="154" height="27" alt="image" src="https://github.com/user-attachments/assets/a91c04e5-12fe-45bf-9541-263200879217" />
+rpc_address: <img width="154" height="27" alt="image" src="https://github.com/user-attachments/assets/a91c04e5-12fe-45bf-9541-263200879217" />
 
-seed_provider: - seeds:
-<img width="194" height="43" alt="image" src="https://github.com/user-attachments/assets/d3107a99-3c7b-4d11-a624-3421ff1d8281" />
+seed_provider: - seeds: <img width="194" height="43" alt="image" src="https://github.com/user-attachments/assets/d3107a99-3c7b-4d11-a624-3421ff1d8281" />
 
 Always restart the service once the configuration is made.
 <img width="226" height="61" alt="image" src="https://github.com/user-attachments/assets/e509f453-7e72-4ec7-a7aa-1b01ed5ae165" />

@@ -186,5 +186,37 @@ step4: connecting the regex to virus total and getting the report on the sha256 
 <img width="852" height="670" alt="image" src="https://github.com/user-attachments/assets/7e502296-2010-491b-baf6-e37ef2c0da11" />
 
 
+##  configuring the hive in shufffle
+step 1 : login using the default credentials
+step 2 : add the orginsation
+<img width="1064" height="163" alt="image" src="https://github.com/user-attachments/assets/12b43a1d-737b-4ae4-9e16-78617bf0071a" />
 
 
+step3: under the organistaion that we just created add the 2 user , one normal and one sercive
+<img width="923" height="128" alt="image" src="https://github.com/user-attachments/assets/9727f960-0694-4501-8351-270554c2494c" />
+
+
+strp 4: using the service user , create a API key so that we can connect it in the suffle
+<img width="533" height="303" alt="image" src="https://github.com/user-attachments/assets/e5b98fa7-4a4c-4575-98c9-dcfade1d198d" />
+
+<img width="720" height="248" alt="image" src="https://github.com/user-attachments/assets/f6efb30d-a2a1-494b-871e-adb1eb6bdbef" />
+
+step 5: configure the hive  in suffle using the advanced,
+<img width="334" height="163" alt="image" src="https://github.com/user-attachments/assets/b774ddae-4ea5-49d8-8e71-0e8ba6b23e3b" />
+
+
+<img width="868" height="120" alt="image" src="https://github.com/user-attachments/assets/b470ac92-5393-43da-b376-5e35e93c03f6" />
+ ## sending the email to soc analyst from suffle
+<img width="190" height="268" alt="image" src="https://github.com/user-attachments/assets/64ee18d1-d5c3-4d14-a27d-4d3aaa055183" />
+
+<img width="452" height="259" alt="image" src="https://github.com/user-attachments/assets/5900ea3c-4f44-4443-97fc-7ce0765fc892" />
+
+
+<img width="428" height="159" alt="image" src="https://github.com/user-attachments/assets/13d58a01-8c66-4ece-8582-8a2ce527b050" />
+
+![Uploading image.png…]()
+
+
+
+
+ <img width="224" height="116" alt="image" src="https://github.com/user-attachments/assets/aac769a3-48db-4089-8cd3-4664c55e7849" />

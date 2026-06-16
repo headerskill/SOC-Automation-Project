@@ -41,28 +41,18 @@ Requirements
 *	Shuffle
 *	VirusTotal API Key
 
-# Scope of the Project
-The scope of this project is to design and implement a small-scale SOC automation environment using Wazuh, Shuffle, and TheHive within a virtualized lab setup. The project focuses on collecting and monitoring endpoint logs from Windows systems, detecting suspicious activities, automating alert processing, and managing incident response cases. The senario include the use of Mimimkatz, which is used in the winodws for credentailas dumping.
-
-## Requirments
-* Virtual machihne, Windows 10 , ubuntu , wazuh , TheHive, Suffle , Sysmon
-  
-The project includes:
-Wazuh for SIEM and XDR
-TheHive for Case Management
-Suffle for SOAR 
-
-deployment and configuration of Wazuh for centralized log collection and threat detection,
-installation of Sysmon for advanced Windows event logging,
-integration of Shuffle to automate security workflows and alert handling,
-integration of TheHive for incident and case management,
-simulation of cyber attack scenarios such as brute force attacks and suspicious PowerShell activity,
-and analysis of alerts generated within the SOC environment.
-
-
 ## Desigining the Data flow Diagram
 <img width="506" height="452" alt="image" src="https://github.com/user-attachments/assets/b875b974-f0bc-4930-8f77-fc4ca6f00d76" />
 
+1.	Sysmon generates detailed endpoint telemetry.
+2.	Wazuh Agent collects Sysmon logs.
+3.	Wazuh Manager receives and analyses events.
+4.	Detection rules generate security alerts.
+5.	Alerts are forwarded to Shuffle via Webhook.
+6.	Shuffle extracts Indicators of Compromise (IOCs).
+7.	VirusTotal enriches the alert with threat intelligence.
+8.	TheHive automatically creates an incident case.
+9.	Email notifications are sent to SOC analysts
 
 
 

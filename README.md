@@ -18,6 +18,27 @@ Components
 * Windows 10 VM	Endpoint used for attack simulation
 * Ubuntu Server	Hosts Wazuh, TheHive, and Shuffle services
 
+## Project Scope
+The project focuses on:
+•	Centralized log collection and monitoring
+•	Endpoint telemetry generation using Sysmon
+•	Threat detection using Wazuh
+•	Automated alert processing through Shuffle
+•	Threat intelligence enrichment using VirusTotal
+•	Incident creation and management in TheHive
+•	Security event investigation and response
+•	Simulation of credential dumping attacks using Mimikatz
+Lab Environment
+Requirements
+•	Virtual Machine Platform (VMware Workstation / VirtualBox)
+•	Windows 10 Virtual Machine
+•	Ubuntu Server
+•	Wazuh Server
+•	Wazuh Agent
+•	Sysmon
+•	TheHive
+•	Shuffle
+•	VirusTotal API Key
 
 # Scope of the Project
 The scope of this project is to design and implement a small-scale SOC automation environment using Wazuh, Shuffle, and TheHive within a virtualized lab setup. The project focuses on collecting and monitoring endpoint logs from Windows systems, detecting suspicious activities, automating alert processing, and managing incident response cases. The senario include the use of Mimimkatz, which is used in the winodws for credentailas dumping.

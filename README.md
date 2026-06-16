@@ -5,16 +5,18 @@ This project demonstrates the design and implementation of a Security Operations
 
 The objective is to automate threat detection, alert enrichment, case management, and incident response workflows. The lab simulates real-world attack scenarios, including credential dumping using Mimikatz, allowing security analysts to observe how alerts are generated, processed, enriched, and escalated through an automated SOC pipeline
 
-##Project Architecture
+## Project Architecture
 Components
-Component	Purpose
-Wazuh	SIEM and XDR platform for log collection, analysis, and threat detection
-Sysmon	Advanced Windows event logging and telemetry generation
-Shuffle	Security Orchestration, Automation, and Response (SOAR) platform
-TheHive	Incident response and case management platform
-VirusTotal	Threat intelligence enrichment service
-Windows 10 VM	Endpoint used for attack simulation
-Ubuntu Server	Hosts Wazuh, TheHive, and Shuffle services
+
+### Component	Purpose
+
+* Wazuh	SIEM and XDR platform for log collection, analysis, and threat detection
+* Sysmon	Advanced Windows event logging and telemetry generation
+* Shuffle	Security Orchestration, Automation, and Response (SOAR) platform
+* TheHive	Incident response and case management platform
+* VirusTotal	Threat intelligence enrichment service
+* Windows 10 VM	Endpoint used for attack simulation
+* Ubuntu Server	Hosts Wazuh, TheHive, and Shuffle services
 
 
 # Scope of the Project

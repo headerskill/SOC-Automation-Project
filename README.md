@@ -54,6 +54,23 @@ Requirements
 8.	TheHive automatically creates an incident case.
 9.	Email notifications are sent to SOC analysts
 
+## Installing Sysmon
+Download Resources
+*	Sysmon: [https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
+*	Sysmon Configuration: [https://github.com/olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml)
+Installation Steps
+1.	Download and extract Sysmon.
+2.	Copy the Sysmon configuration XML file into the Sysmon directory.
+3.	Open PowerShell as Administrator.
+4.	Navigate to the Sysmon installation directory.
+5.	Install Sysmon using:
+.\Sysmon64.exe -i .\sysmonconfig.xml
+6.	Verify installation through:
+Event Viewer
+ └── Applications and Services Logs
+      └── Microsoft
+           └── Windows
+                └── Sysmon
 
 
 ## Insatalling the sysmon on the Windows 10 vm 

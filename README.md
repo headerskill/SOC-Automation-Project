@@ -66,12 +66,11 @@ This architecture closely resembles how many organizations deploy centralized mo
 Windows Event Logs provide useful information, but they often lack the level of detail required for effective threat hunting and forensic investigations.
 
 Sysmon extends native Windows logging by providing:
-
-Process creation events
-Network connection events
-File creation events
-Registry modifications
-Cryptographic hashes
+* Process creation events
+* Network connection events
+* File creation events
+* Registry modifications
+* Cryptographic hashes
 
 This additional telemetry improves visibility into attacker behavior and enables more accurate threat detection.
 

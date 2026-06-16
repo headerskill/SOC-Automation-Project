@@ -1,5 +1,9 @@
 # SOC-Automation-Project
 Using wazuh , TheHive and Suffle
+## Overview
+This project demonstrates the design and implementation of a Security Operations Center (SOC) automation environment using Wazuh, TheHive, Shuffle, and Sysmon within a virtualized lab environment.
+The objective is to automate threat detection, alert enrichment, case management, and incident response workflows. The lab simulates real-world attack scenarios, including credential dumping using Mimikatz, allowing security analysts to observe how alerts are generated, processed, enriched, and escalated through an automated SOC pipeline
+
 
 
 # Scope of the Project

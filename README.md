@@ -1,14 +1,17 @@
 # SOC-Automation-Project
 Using wazuh , TheHive and Suffle
 ## Overview
-This project demonstrates the design and implementation of a Security Operations Center (SOC) automation environment using Wazuh, TheHive, Shuffle, and Sysmon within a virtualized lab environment.
+This project demonstrates the design and implementation of a Security Operations Center (SOC) automation lab using Wazuh, TheHive, Shuffle, Sysmon, and VirusTotal within a virtualized environment.
 
-The objective is to automate threat detection, alert enrichment, case management, and incident response workflows. The lab simulates real-world attack scenarios, including credential dumping using Mimikatz, allowing security analysts to observe how alerts are generated, processed, enriched, and escalated through an automated SOC pipeline
+The primary objective of this project was to build an automated incident detection and response pipeline that mirrors the workflow of a modern SOC. Rather than manually investigating every alert, the environment automatically detects suspicious activity, enriches alerts with threat intelligence, creates incidents, and notifies analysts for further investigation.
+
+To validate the effectiveness of the solution, a credential-dumping attack using Mimikatz was simulated on a Windows endpoint. This allowed the complete alert lifecycle to be observed, from event generation and detection to enrichment, case creation, and analyst notification.
+
+Through this project, I gained hands-on experience with SIEM, SOAR, threat intelligence integration, detection engineering, and incident response processes commonly used in enterprise security environments.
 
 ## Project Architecture
-Components
 
-### Component	Purpose
+### Components and its purpose
 
 * Wazuh	SIEM and XDR platform for log collection, analysis, and threat detection
 * Sysmon	Advanced Windows event logging and telemetry generation
@@ -30,16 +33,21 @@ The project focuses on:
 *	Simulation of credential dumping attacks using Mimikatz
 
 ## Lab Environment
-Requirements
-*	Virtual Machine Platform (VMware Workstation / VirtualBox)
-*	Windows 10 Virtual Machine
-*	Ubuntu Server
-*	Wazuh Server
-*	Wazuh Agent
-*	Sysmon
-*	TheHive
-*	Shuffle
-*	VirusTotal API Key
+### Infrastructure
+#### Windows 10 Virtual Machine
+
+The Windows endpoint was used to simulate attacker activity and generate security events. Sysmon and the Wazuh Agent were installed on this system to collect telemetry and forward it to the SIEM platform.
+
+#### Ubuntu Server
+
+The Ubuntu server hosted the core SOC infrastructure, including:
+* Wazuh
+* TheHive
+* Shuffle
+* Elasticsearch
+* Cassandra
+
+This architecture closely resembles how many organizations deploy centralized monitoring and response platforms.
 
 ## Desigining the Data flow Diagram
 <img width="506" height="452" alt="image" src="https://github.com/user-attachments/assets/b875b974-f0bc-4930-8f77-fc4ca6f00d76" />
@@ -55,7 +63,19 @@ Requirements
 9.	Email notifications are sent to SOC analysts
 
 ## Installing Sysmon
-Download Resources
+Windows Event Logs provide useful information, but they often lack the level of detail required for effective threat hunting and forensic investigations.
+
+Sysmon extends native Windows logging by providing:
+
+Process creation events
+Network connection events
+File creation events
+Registry modifications
+Cryptographic hashes
+
+This additional telemetry improves visibility into attacker behavior and enables more accurate threat detection.
+
+### Download Resources
 *	Sysmon: [https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
 *	Sysmon Configuration: [https://github.com/olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular/blob/master/sysmonconfig.xml)
 
@@ -76,7 +96,19 @@ Event Viewer
 
 
 
-# Installing the wazhu server in the ubuntu 
+## Installing the wazhu server in the ubuntu 
+
+Wazuh acts as the central SIEM platform within the SOC environment.
+
+Its role is to:
+* Collect logs from endpoints
+* Analyze security events
+* Detect suspicious activity
+* Generate alerts
+* Provide centralized visibility
+
+Without a SIEM, analysts would need to manually review logs from multiple systems, significantly increasing investigation time.
+
 https://documentation.wazuh.com/current/quickstart.html
 https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
 

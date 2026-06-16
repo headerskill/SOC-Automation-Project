@@ -107,17 +107,20 @@ Its role is to:
 * Provide centralized visibility
 
 Without a SIEM, analysts would need to manually review logs from multiple systems, significantly increasing investigation time.
+### Documentation for installing the wazhu
 
-https://documentation.wazuh.com/current/quickstart.html
-https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
-
+* https://documentation.wazuh.com/current/quickstart.html
+* https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
+### Updating the Ubuntu
 * get-apt update && get-upgrade -y
+
+### Installing the Wauzh
 * curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a --ignore-check
 * After installation you will get the credentail that is needed to login to wazuh
 * launch the wazuh using the web brower with your host ip : https:\\198.2.x.x , and use the advance option to proceed to the site.
-*
 
-# Installing the theHive
+
+## Installing the theHive
 
 https://docs.strangebee.com/thehive/installation/installation-guide-linux-standalone-server/
 

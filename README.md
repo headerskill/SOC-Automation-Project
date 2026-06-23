@@ -176,7 +176,7 @@ sudo apt install elasticsearch
 wget https://thehive.download.strangebee.com/5.7/deb/thehive_5.7.2-1_all.deb
 sudo apt install ./thehive_5.7.2-1_all.deb
 
-## Configuring the Wazuh 
+## Configuring the Wazuh  Agent 
 The Wazuh Agent acts as the bridge between the monitored endpoint and the SIEM platform.
 
 Its responsibilities include:
@@ -188,6 +188,11 @@ Supporting Sysmon integration
 
 Deploy the Wazuh Agent on the Windows endpoint and register it with the Wazuh server.
 Start the service:
+Configuring the wauzh agent 
+<img width="1723" height="782" alt="image" src="https://github.com/user-attachments/assets/c27b300d-bdbf-412d-896c-14167e481603" />
+
+After that open the powershell in administaration mode and past the command you get will configuting the agent on wauzh 
+to start : net start wauzh on powershell
 
 net start wazuh
 
@@ -248,11 +253,6 @@ Directory : /etc/thehive/application.conf
 <img width="245" height="55" alt="image" src="https://github.com/user-attachments/assets/1d2ec92f-fa43-4ad3-ae39-9a04e609474d" />
 
 
-Configuring the wauzh agent 
-<img width="1723" height="782" alt="image" src="https://github.com/user-attachments/assets/c27b300d-bdbf-412d-896c-14167e481603" />
-
-After that open the powershell in administaration mode and past the command you get will configuting the agent on wauzh 
-to start : net start wauzh on powershell
 
 Confifguring the ossce file on the machine where agent is installed.
 <img width="552" height="291" alt="image" src="https://github.com/user-attachments/assets/69d1059b-9a4b-4d2c-9072-0bde8d16d55f" />

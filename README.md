@@ -281,8 +281,13 @@ creating the index
 <img width="1015" height="174" alt="image" src="https://github.com/user-attachments/assets/182723f2-a62a-4154-b4eb-64f9cd6c0862" />
 
 
+## Custom Detection Rules
+A common attacker evasion technique is renaming malicious executables to bypass filename-based
+detections.
+To improve resilience, custom Wazuh detection rules were written to identify suspicious behaviour and
+process characteristics rather than relying on executable names alone. This approach aligns with
+modern detection engineering practices.
 
-Adding the rules
 <img width="1582" height="807" alt="image" src="https://github.com/user-attachments/assets/285e7f0f-fd4e-4652-857f-210fafa93483" />
 <img width="824" height="557" alt="image" src="https://github.com/user-attachments/assets/e255e617-90d4-469a-829a-ee55abc8f634" />
 <img width="994" height="568" alt="image" src="https://github.com/user-attachments/assets/33829bfd-9b4c-40e9-856a-19d6c5f9f239" />

@@ -445,6 +445,9 @@ This improves response times and helps analysts prioritize investigations.
 <img width="224" height="116" alt="image" src="https://github.com/user-attachments/assets/aac769a3-48db-4089-8cd3-4664c55e7849" />
 
 <img width="428" height="159" alt="image" src="https://github.com/user-attachments/assets/13d58a01-8c66-4ece-8582-8a2ce527b050" />
+
+
+
 ## Project Outcomes
 
 This project successfully demonstrates:
@@ -459,7 +462,7 @@ This project successfully demonstrates:
 
 Most importantly, this project demonstrates how automation can reduce manual effort, improve detection efficiency, and accelerate incident response within a modern Security Operations Center.
 
-Key Skills Demonstrated
+## Key Skills Demonstrated
 * Security Operations Center (SOC) Operations
 * SIEM Engineering
 * Detection Engineering

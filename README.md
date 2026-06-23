@@ -264,7 +264,9 @@ Directory : /etc/thehive/application.conf
 <img width="245" height="55" alt="image" src="https://github.com/user-attachments/assets/1d2ec92f-fa43-4ad3-ae39-9a04e609474d" />
 
 
-configuring the filebeat
+## configuring the filebeat and the wazuh index
+Configure Filebeat to forward Wazuh alerts to Elasticsearch, then create the index pattern in the Wazuh
+dashboard so events are searchable.
 <img width="973" height="857" alt="image" src="https://github.com/user-attachments/assets/d6ac9485-6d5f-4f98-b214-8b5e28961b2a" />
 
 creating the index

@@ -278,7 +278,7 @@ creating the index
 <img width="685" height="352" alt="image" src="https://github.com/user-attachments/assets/e54b6ca1-c57e-4a25-88ff-9f9217495162" />
 <img width="989" height="539" alt="image" src="https://github.com/user-attachments/assets/e8328f12-714b-4c33-9cfd-a9d44118eb1c" />
 <img width="988" height="724" alt="image" src="https://github.com/user-attachments/assets/1693d92e-dc35-4998-bc76-c6f068b46dce" />
-<img width="1015" height="174" alt="image" src="https://github.com/user-attachments/assets/182723f2-a62a-4154-b4eb-64f9cd6c0862" />
+
 
 
 ## Custom Detection Rules
@@ -287,6 +287,7 @@ detections.
 To improve resilience, custom Wazuh detection rules were written to identify suspicious behaviour and
 process characteristics rather than relying on executable names alone. This approach aligns with
 modern detection engineering practices.
+<img width="1015" height="174" alt="image" src="https://github.com/user-attachments/assets/182723f2-a62a-4154-b4eb-64f9cd6c0862" />
 
 <img width="1582" height="807" alt="image" src="https://github.com/user-attachments/assets/285e7f0f-fd4e-4652-857f-210fafa93483" />
 <img width="824" height="557" alt="image" src="https://github.com/user-attachments/assets/e255e617-90d4-469a-829a-ee55abc8f634" />
@@ -294,8 +295,6 @@ modern detection engineering practices.
 <img width="963" height="733" alt="image" src="https://github.com/user-attachments/assets/3021241e-8438-4e6f-821c-48f4e12dc53c" />
 
 
-
-![Uploading image.png…]()
 
 ## Detection Engineering
 Why Use Mimikatz?

@@ -220,9 +220,9 @@ configuring the osec file
 <img width="1284" height="648" alt="image" src="https://github.com/user-attachments/assets/de3d8fcb-0f2a-4e73-b580-37a2fdfaddf7" />
 
 Restart the Wazuh Agent after making configuration changes.
-now you can see the sysmson log on your wazuh dashboard
-<img width="946" height="763" alt="image" src="https://github.com/user-attachments/assets/b26ba582-cfe4-4f36-bd73-11d85c3bd237" />
+
 Once configured successfully, Sysmon events should begin appearing in the Wazuh Dashboard.
+<img width="946" height="763" alt="image" src="https://github.com/user-attachments/assets/b26ba582-cfe4-4f36-bd73-11d85c3bd237" />
 
 ## configuring the cassandra
 Directory :  /etc/cassandra/cassandra.yml

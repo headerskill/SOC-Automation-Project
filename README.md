@@ -243,8 +243,11 @@ To check the status use: systemctl status cassabdra.service
 Configuting the elastic 
 Directory : /etec/elasticsearch/elasticsearch.yml
 <img width="188" height="130" alt="image" src="https://github.com/user-attachments/assets/c0b1133e-ea2b-4a1e-a29c-7b4553559f31" />
+
 <img width="160" height="21" alt="image" src="https://github.com/user-attachments/assets/e64f4755-9581-4031-9d9b-8b78cc917ddf" />
+
 <img width="248" height="187" alt="image" src="https://github.com/user-attachments/assets/09187097-785b-495e-8382-8cc66e8a7dcc" />
+
 <img width="346" height="111" alt="image" src="https://github.com/user-attachments/assets/49bef8f3-38f7-4ab0-8a42-23e61e10ca63" />
 
 ## Configuring TheHive 
@@ -257,6 +260,7 @@ Directory : /etc/thehive/application.conf
 <img width="241" height="211" alt="image" src="https://github.com/user-attachments/assets/ae7b3b4b-c84b-4248-a1a2-8cca37ba03ab" />
 
 <img width="243" height="52" alt="image" src="https://github.com/user-attachments/assets/0c34ced2-fad9-45ca-8490-486f05e82f23" />
+
 <img width="245" height="55" alt="image" src="https://github.com/user-attachments/assets/1d2ec92f-fa43-4ad3-ae39-9a04e609474d" />
 
 
@@ -282,59 +286,7 @@ Adding the rules
 <img width="994" height="568" alt="image" src="https://github.com/user-attachments/assets/33829bfd-9b4c-40e9-856a-19d6c5f9f239" />
 <img width="963" height="733" alt="image" src="https://github.com/user-attachments/assets/3021241e-8438-4e6f-821c-48f4e12dc53c" />
 
-## Geneating the temeletry 
 
-
-
-
-
-### SOAR 
-step 1: use the webhook , can copy the webhookurl
-<img width="1451" height="696" alt="image" src="https://github.com/user-attachments/assets/d2795441-99e7-4896-88db-d9cfd715a0b9" />
-
-
-step 2: modify wauzh manger ossec config file to connect to the webhook
-<img width="1012" height="705" alt="image" src="https://github.com/user-attachments/assets/6d0a4b0a-3386-4775-aad1-3f507dae3afb" />
-
-
-step 3: chaning the change me to refex capture group to extract the sha256
-<img width="646" height="561" alt="image" src="https://github.com/user-attachments/assets/83203005-f845-42d9-89cf-50527bcb630e" />
-
-
-step4: connecting the regex to virus total and getting the report on the sha256 using the virus total api key.
-<img width="454" height="506" alt="image" src="https://github.com/user-attachments/assets/1a2b37db-da55-4bcc-bcb0-d41fd903b83f" />
-<img width="514" height="360" alt="image" src="https://github.com/user-attachments/assets/a0352ca3-b930-4e52-88ed-15435e6ae75d" />
-<img width="512" height="1105" alt="image" src="https://github.com/user-attachments/assets/8cd236fd-9b78-4094-8b75-703202a107e0" />
-<img width="852" height="670" alt="image" src="https://github.com/user-attachments/assets/7e502296-2010-491b-baf6-e37ef2c0da11" />
-
-
-##  configuring the hive in shufffle
-step 1 : login using the default credentials
-step 2 : add the orginsation
-<img width="1064" height="163" alt="image" src="https://github.com/user-attachments/assets/12b43a1d-737b-4ae4-9e16-78617bf0071a" />
-
-
-step3: under the organistaion that we just created add the 2 user , one normal and one sercive
-<img width="923" height="128" alt="image" src="https://github.com/user-attachments/assets/9727f960-0694-4501-8351-270554c2494c" />
-
-
-strp 4: using the service user , create a API key so that we can connect it in the suffle
-<img width="533" height="303" alt="image" src="https://github.com/user-attachments/assets/e5b98fa7-4a4c-4575-98c9-dcfade1d198d" />
-
-<img width="720" height="248" alt="image" src="https://github.com/user-attachments/assets/f6efb30d-a2a1-494b-871e-adb1eb6bdbef" />
-
-step 5: configure the hive  in suffle using the advanced,
-<img width="334" height="163" alt="image" src="https://github.com/user-attachments/assets/b774ddae-4ea5-49d8-8e71-0e8ba6b23e3b" />
-
-
-<img width="868" height="120" alt="image" src="https://github.com/user-attachments/assets/b470ac92-5393-43da-b376-5e35e93c03f6" />
- ## sending the email to soc analyst from suffle
-<img width="190" height="268" alt="image" src="https://github.com/user-attachments/assets/64ee18d1-d5c3-4d14-a27d-4d3aaa055183" />
-
-<img width="452" height="259" alt="image" src="https://github.com/user-attachments/assets/5900ea3c-4f44-4443-97fc-7ce0765fc892" />
-
-
-<img width="428" height="159" alt="image" src="https://github.com/user-attachments/assets/13d58a01-8c66-4ece-8582-8a2ce527b050" />
 
 ![Uploading image.png…]()
 
@@ -385,7 +337,12 @@ This enables automated processing of security events immediately after detection
 2. Copy the generated webhook URL.
 3. Configure Wazuh Manager to forward alerts to the webhook.
 4. Verify successful alert delivery.
+step 1: use the webhook , can copy the webhookurl
+<img width="1451" height="696" alt="image" src="https://github.com/user-attachments/assets/d2795441-99e7-4896-88db-d9cfd715a0b9" />
 
+
+step 2: modify wauzh manger ossec config file to connect to the webhook
+<img width="1012" height="705" alt="image" src="https://github.com/user-attachments/assets/6d0a4b0a-3386-4775-aad1-3f507dae3afb" />
 
 ### Step 2: Extract SHA256 Hashes
 
@@ -394,7 +351,8 @@ Indicators of Compromise often include file hashes.
 Shuffle uses Regular Expressions (Regex) to automatically extract SHA256 hashes from incoming alerts.
 
 These hashes are then passed to threat intelligence services for enrichment.
-
+step 3: chaning the change me to refex capture group to extract the sha256
+<img width="646" height="561" alt="image" src="https://github.com/user-attachments/assets/83203005-f845-42d9-89cf-50527bcb630e" />
 ### Step 3: Threat Intelligence Enrichment
 Why VirusTotal?
 
@@ -410,6 +368,12 @@ This helps analysts quickly determine whether a file has previously been identif
 3. Select the Get Hash Report action.
 4. Pass the extracted SHA256 hash.
 5. Validate successful enrichment.
+step4: connecting the regex to virus total and getting the report on the sha256 using the virus total api key.
+<img width="454" height="506" alt="image" src="https://github.com/user-attachments/assets/1a2b37db-da55-4bcc-bcb0-d41fd903b83f" />
+<img width="514" height="360" alt="image" src="https://github.com/user-attachments/assets/a0352ca3-b930-4e52-88ed-15435e6ae75d" />
+<img width="512" height="1105" alt="image" src="https://github.com/user-attachments/assets/8cd236fd-9b78-4094-8b75-703202a107e0" />
+<img width="852" height="670" alt="image" src="https://github.com/user-attachments/assets/7e502296-2010-491b-baf6-e37ef2c0da11" />
+
 
 
 ### Step 4: Automatic Incident Creation
@@ -430,7 +394,26 @@ Service Account User
 3. Configure TheHive integration in Shuffle.
 4. Validate successful case creation.
 
+##  configuring the hive in shufffle
+step 1 : login using the default credentials
+step 2 : add the orginsation
+<img width="1064" height="163" alt="image" src="https://github.com/user-attachments/assets/12b43a1d-737b-4ae4-9e16-78617bf0071a" />
 
+
+step3: under the organistaion that we just created add the 2 user , one normal and one sercive
+<img width="923" height="128" alt="image" src="https://github.com/user-attachments/assets/9727f960-0694-4501-8351-270554c2494c" />
+
+
+strp 4: using the service user , create a API key so that we can connect it in the suffle
+<img width="533" height="303" alt="image" src="https://github.com/user-attachments/assets/e5b98fa7-4a4c-4575-98c9-dcfade1d198d" />
+
+<img width="720" height="248" alt="image" src="https://github.com/user-attachments/assets/f6efb30d-a2a1-494b-871e-adb1eb6bdbef" />
+
+step 5: configure the hive  in suffle using the advanced,
+<img width="334" height="163" alt="image" src="https://github.com/user-attachments/assets/b774ddae-4ea5-49d8-8e71-0e8ba6b23e3b" />
+
+
+<img width="868" height="120" alt="image" src="https://github.com/user-attachments/assets/b470ac92-5393-43da-b376-5e35e93c03f6" />
 
 
 ### Step 5: Analyst Notifications
@@ -448,7 +431,13 @@ Shuffle sends emails containing:
 * TheHive case reference
 
 This improves response times and helps analysts prioritize investigations.
+ ## sending the email to soc analyst from suffle
+<img width="190" height="268" alt="image" src="https://github.com/user-attachments/assets/64ee18d1-d5c3-4d14-a27d-4d3aaa055183" />
 
+<img width="452" height="259" alt="image" src="https://github.com/user-attachments/assets/5900ea3c-4f44-4443-97fc-7ce0765fc892" />
+
+
+<img width="428" height="159" alt="image" src="https://github.com/user-attachments/assets/13d58a01-8c66-4ece-8582-8a2ce527b050" />
 ## Project Outcomes
 
 This project successfully demonstrates:

@@ -212,9 +212,16 @@ Investigations become significantly easier
 Modify the Wazuh Agent configuration to collect Sysmon events:
 
 C:\Program Files (x86)\ossec-agent\ossec.conf
+Confifguring the ossce file on the machine where agent is installed.
+<img width="552" height="291" alt="image" src="https://github.com/user-attachments/assets/69d1059b-9a4b-4d2c-9072-0bde8d16d55f" />
+
+To generate the mimikatz on the wauzuh you need to create the rule
+configuring the osec file 
+<img width="1284" height="648" alt="image" src="https://github.com/user-attachments/assets/de3d8fcb-0f2a-4e73-b580-37a2fdfaddf7" />
 
 Restart the Wazuh Agent after making configuration changes.
-
+now you can see the sysmson log on your wazuh dashboard
+<img width="946" height="763" alt="image" src="https://github.com/user-attachments/assets/b26ba582-cfe4-4f36-bd73-11d85c3bd237" />
 Once configured successfully, Sysmon events should begin appearing in the Wazuh Dashboard.
 
 ## configuring the cassandra

@@ -260,19 +260,6 @@ Directory : /etc/thehive/application.conf
 <img width="245" height="55" alt="image" src="https://github.com/user-attachments/assets/1d2ec92f-fa43-4ad3-ae39-9a04e609474d" />
 
 
-
-Confifguring the ossce file on the machine where agent is installed.
-<img width="552" height="291" alt="image" src="https://github.com/user-attachments/assets/69d1059b-9a4b-4d2c-9072-0bde8d16d55f" />
-
-now you can see the sysmson log on your wazuh dashboard
-<img width="946" height="763" alt="image" src="https://github.com/user-attachments/assets/b26ba582-cfe4-4f36-bd73-11d85c3bd237" />
-
-To generate the mimikatz on the wauzuh you need to create the rule
-
-
-configuring the osec file 
-<img width="1284" height="648" alt="image" src="https://github.com/user-attachments/assets/de3d8fcb-0f2a-4e73-b580-37a2fdfaddf7" />
-
 configuring the filebeat
 <img width="973" height="857" alt="image" src="https://github.com/user-attachments/assets/d6ac9485-6d5f-4f98-b214-8b5e28961b2a" />
 

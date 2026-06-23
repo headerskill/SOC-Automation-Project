@@ -21,16 +21,16 @@ Through this project, I gained hands-on experience with SIEM, SOAR, threat intel
 * Windows 10 VM	Endpoint used for attack simulation
 * Ubuntu Server	Hosts Wazuh, TheHive, and Shuffle services
 
-## Project Scope
-The project focuses on:
-*	Centralized log collection and monitoring
-*	Endpoint telemetry generation using Sysmon
-*	Threat detection using Wazuh
-*	Automated alert processing through Shuffle
-*	Threat intelligence enrichment using VirusTotal
-*	Incident creation and management in TheHive
-*	Security event investigation and response
-*	Simulation of credential dumping attacks using Mimikatz
+## Project Objectives
+The project was designed to achieve the following goals:
+* Centralize endpoint log collection and monitoring
+* Improve endpoint visibility using Sysmon telemetry
+* Detect malicious activity using Wazuh detection rules
+* Automate alert enrichment using threat intelligence
+* Reduce manual analyst workload through SOAR automation
+* Automatically create and manage incidents in TheHive
+* Simulate real-world attack techniques for validation
+* Understand the complete alert-to-investigation lifecycle
 
 ## Lab Environment
 ### Infrastructure
@@ -50,8 +50,7 @@ The Ubuntu server hosted the core SOC infrastructure, including:
 This architecture closely resembles how many organizations deploy centralized monitoring and response platforms.
 
 ## Desigining the Data flow Diagram
-<img width="506" height="452" alt="image" src="https://github.com/user-attachments/assets/b875b974-f0bc-4930-8f77-fc4ca6f00d76" />
-
+### Data Flow
 1.	Sysmon generates detailed endpoint telemetry.
 2.	Wazuh Agent collects Sysmon logs.
 3.	Wazuh Manager receives and analyses events.
@@ -61,6 +60,9 @@ This architecture closely resembles how many organizations deploy centralized mo
 7.	VirusTotal enriches the alert with threat intelligence.
 8.	TheHive automatically creates an incident case.
 9.	Email notifications are sent to SOC analysts
+<img width="506" height="452" alt="image" src="https://github.com/user-attachments/assets/b875b974-f0bc-4930-8f77-fc4ca6f00d76" />
+
+
 
 ## Installing Sysmon
 Windows Event Logs provide useful information, but they often lack the level of detail required for effective threat hunting and forensic investigations.
@@ -107,10 +109,13 @@ Its role is to:
 * Provide centralized visibility
 
 Without a SIEM, analysts would need to manually review logs from multiple systems, significantly increasing investigation time.
+
+
 ### Documentation for installing the wazhu
 
 * https://documentation.wazuh.com/current/quickstart.html
 * https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html
+* 
 ### Updating the Ubuntu
 * get-apt update && get-upgrade -y
 
@@ -121,10 +126,29 @@ Without a SIEM, analysts would need to manually review logs from multiple system
 
 
 ## Installing the theHive
+Generating alerts is only part of the incident response process.
 
+Security teams require a structured platform to:
+* Create investigations
+* Assign ownership
+* Record findings
+* Track evidence
+* Manage response activities
+
+TheHive provides centralized incident management, ensuring that security investigations are documented and tracked effectively.
+
+#### Required Dependencies
+
+TheHive requires:
+1. Java 11
+2. Apache Cassandra
+3. Elasticsearch
+
+Install the dependencies and configure them according to the official documentation before installing TheHive.
+#### Official Documentation:
 https://docs.strangebee.com/thehive/installation/installation-guide-linux-standalone-server/
 
-Dependences
+##### Installing Dependences
 apt install wget gnupg apt-transport-https git ca-certificates ca-certificates-java curl  software-properties-common python3-pip lsb-release
 
 ### Install Java
@@ -148,13 +172,47 @@ echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://arti
 sudo apt update
 sudo apt install elasticsearch
 
-#### 
+#### Install thehive
 wget https://thehive.download.strangebee.com/5.7/deb/thehive_5.7.2-1_all.deb
 sudo apt install ./thehive_5.7.2-1_all.deb
 
 ## Configuring the Wazuh 
+The Wazuh Agent acts as the bridge between the monitored endpoint and the SIEM platform.
 
-configuring the cassandra
+Its responsibilities include:
+
+Collecting logs
+Monitoring endpoint activity
+Forwarding events to Wazuh Manager
+Supporting Sysmon integration
+
+Deploy the Wazuh Agent on the Windows endpoint and register it with the Wazuh server.
+Start the service:
+
+net start wazuh
+
+
+## Sysmon Integration
+Why Integrate Sysmon with Wazuh?
+
+While Sysmon generates detailed telemetry, those logs must be centralized for monitoring and analysis.
+
+By integrating Sysmon with Wazuh:
+
+Endpoint events become searchable
+Detection rules can be applied
+Alerts can be generated automatically
+Investigations become significantly easier
+
+Modify the Wazuh Agent configuration to collect Sysmon events:
+
+C:\Program Files (x86)\ossec-agent\ossec.conf
+
+Restart the Wazuh Agent after making configuration changes.
+
+Once configured successfully, Sysmon events should begin appearing in the Wazuh Dashboard.
+
+## configuring the cassandra
 Directory :  /etc/cassandra/cassandra.yml
  Change the following according to your host ip address
  clustername: <img width="133" height="36" alt="image" src="https://github.com/user-attachments/assets/45b80c12-a990-43b0-a149-5af59ea7c8c1" />
@@ -285,6 +343,161 @@ step 5: configure the hive  in suffle using the advanced,
 <img width="428" height="159" alt="image" src="https://github.com/user-attachments/assets/13d58a01-8c66-4ece-8582-8a2ce527b050" />
 
 ![Uploading image.png…]()
+
+## Detection Engineering
+Why Use Mimikatz?
+
+Mimikatz is one of the most widely known post-exploitation tools used by attackers to extract credentials from memory.
+
+Because of its prevalence in real-world attacks, it serves as an excellent tool for validating detection capabilities.
+
+## Attack Simulation
+
+The following attack scenario was performed:
+
+Execute Mimikatz on the Windows endpoint.
+Sysmon records process activity.
+Wazuh receives the generated events.
+Detection rules identify suspicious behavior.
+Alerts are generated and forwarded to Shuffle.
+
+## Detection Challenge
+
+A common attacker evasion technique is renaming malicious tools to bypass detections that rely solely on filenames.
+
+To improve resilience against this technique, custom Wazuh detection rules were created to identify suspicious behavior and process characteristics rather than depending entirely on executable names.
+
+This approach aligns with modern detection engineering practices and improves detection coverage.
+
+## SOAR Automation with Shuffle
+Why SOAR?
+
+In traditional SOC environments, analysts manually enrich alerts, gather context, create tickets, and notify stakeholders.
+
+This process is repetitive and time-consuming.
+
+SOAR platforms automate these tasks, allowing analysts to focus on investigation and decision-making rather than administrative work.
+
+Shuffle was implemented to automate alert enrichment, incident creation, and analyst notifications.
+
+### Step 1: Receive Wazuh Alerts
+
+Alerts generated by Wazuh are forwarded to Shuffle through a webhook.
+
+This enables automated processing of security events immediately after detection.
+
+#### Configuration
+1. Create a webhook in Shuffle.
+2. Copy the generated webhook URL.
+3. Configure Wazuh Manager to forward alerts to the webhook.
+4. Verify successful alert delivery.
+
+
+### Step 2: Extract SHA256 Hashes
+
+Indicators of Compromise often include file hashes.
+
+Shuffle uses Regular Expressions (Regex) to automatically extract SHA256 hashes from incoming alerts.
+
+These hashes are then passed to threat intelligence services for enrichment.
+
+### Step 3: Threat Intelligence Enrichment
+Why VirusTotal?
+
+Security alerts often provide limited context.
+
+VirusTotal enriches alerts by checking file hashes against multiple antivirus vendors and threat intelligence sources.
+
+This helps analysts quickly determine whether a file has previously been identified as malicious.
+
+#### Configuration
+1. Obtain a VirusTotal API key.
+2. Configure authentication within Shuffle.
+3. Select the Get Hash Report action.
+4. Pass the extracted SHA256 hash.
+5. Validate successful enrichment.
+
+
+### Step 4: Automatic Incident Creation
+Why TheHive Integration?
+
+Manually creating cases for every significant alert can become a bottleneck in SOC operations.
+
+To reduce analyst workload, Shuffle automatically creates incidents in TheHive whenever a suspicious alert is detected.
+
+This ensures that investigations begin immediately and that evidence is preserved from the start of the incident lifecycle.
+
+#### Configuration
+1. Create an organization in TheHive.
+Create:
+Analyst User
+Service Account User
+2. Generate an API key for the Service Account.
+3. Configure TheHive integration in Shuffle.
+4. Validate successful case creation.
+
+
+
+
+### Step 5: Analyst Notifications
+Why Email Notifications?
+
+Analysts may not always be actively monitoring dashboards when a critical alert occurs.
+
+Automatic notifications ensure that incidents receive immediate attention.
+
+Shuffle sends emails containing:
+* Alert details
+* Host information
+* Severity level
+* VirusTotal enrichment results
+* TheHive case reference
+
+This improves response times and helps analysts prioritize investigations.
+
+## Project Outcomes
+
+This project successfully demonstrates:
+* SIEM deployment and administration using Wazuh
+* Endpoint monitoring with Sysmon
+* Detection engineering and custom rule creation
+* Threat intelligence integration using VirusTotal
+* SOAR automation using Shuffle
+* Incident management using TheHive
+* End-to-end SOC automation workflows
+* Security event investigation and response
+
+Most importantly, this project demonstrates how automation can reduce manual effort, improve detection efficiency, and accelerate incident response within a modern Security Operations Center.
+
+Key Skills Demonstrated
+* Security Operations Center (SOC) Operations
+* SIEM Engineering
+* Detection Engineering
+* Incident Response
+* Threat Intelligence
+* SOAR Automation
+* Security Monitoring
+* Endpoint Security
+* Log Analysis
+* Windows Security
+* Linux Administration
+* Threat Detection
+* Security Investigation
+
+## Future Improvements
+
+Potential enhancements include:
+* Active Directory integration
+* Malware sandbox automation
+* YARA rule deployment
+* Sigma rule integration
+* Automated endpoint isolation
+* MITRE ATT&CK mapping
+* Threat hunting dashboards
+* Multi-endpoint monitoring
+* Threat intelligence platform integration
+* Automated IOC blocking
+
 
 
 

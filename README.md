@@ -213,10 +213,13 @@ Modify the Wazuh Agent configuration to collect Sysmon events:
 
 C:\Program Files (x86)\ossec-agent\ossec.conf
 Confifguring the ossce file on the machine where agent is installed.
+
+
 <img width="552" height="291" alt="image" src="https://github.com/user-attachments/assets/69d1059b-9a4b-4d2c-9072-0bde8d16d55f" />
 
 To generate the mimikatz on the wauzuh you need to create the rule
 configuring the osec file 
+
 <img width="1284" height="648" alt="image" src="https://github.com/user-attachments/assets/de3d8fcb-0f2a-4e73-b580-37a2fdfaddf7" />
 
 Restart the Wazuh Agent after making configuration changes.
@@ -227,7 +230,9 @@ Once configured successfully, Sysmon events should begin appearing in the Wazuh 
 ## configuring the cassandra
 Directory :  /etc/cassandra/cassandra.yml
  Change the following according to your host ip address
+ 
  clustername: <img width="133" height="36" alt="image" src="https://github.com/user-attachments/assets/45b80c12-a990-43b0-a149-5af59ea7c8c1" />
+ 
 listen address: <img width="202" height="49" alt="image" src="https://github.com/user-attachments/assets/9536081f-28c8-4cd7-8df2-b903190ea049" />
 
 rpc_address: <img width="154" height="27" alt="image" src="https://github.com/user-attachments/assets/a91c04e5-12fe-45bf-9541-263200879217" />
@@ -235,6 +240,7 @@ rpc_address: <img width="154" height="27" alt="image" src="https://github.com/us
 seed_provider: - seeds: <img width="194" height="43" alt="image" src="https://github.com/user-attachments/assets/d3107a99-3c7b-4d11-a624-3421ff1d8281" />
 
 Always restart the service once the configuration is made.
+
 <img width="226" height="61" alt="image" src="https://github.com/user-attachments/assets/e509f453-7e72-4ec7-a7aa-1b01ed5ae165" />
 
 To check the status use: systemctl status cassabdra.service
@@ -242,6 +248,7 @@ To check the status use: systemctl status cassabdra.service
 
 Configuting the elastic 
 Directory : /etec/elasticsearch/elasticsearch.yml
+
 <img width="188" height="130" alt="image" src="https://github.com/user-attachments/assets/c0b1133e-ea2b-4a1e-a29c-7b4553559f31" />
 
 <img width="160" height="21" alt="image" src="https://github.com/user-attachments/assets/e64f4755-9581-4031-9d9b-8b78cc917ddf" />
@@ -251,12 +258,15 @@ Directory : /etec/elasticsearch/elasticsearch.yml
 <img width="346" height="111" alt="image" src="https://github.com/user-attachments/assets/49bef8f3-38f7-4ab0-8a42-23e61e10ca63" />
 
 ## Configuring TheHive 
+
 Changing the permisson to the directory
+
 <img width="298" height="21" alt="image" src="https://github.com/user-attachments/assets/8576e371-67cd-463e-ab55-f60278c40b41" />
 
 <img width="242" height="56" alt="image" src="https://github.com/user-attachments/assets/ee34490e-9500-494c-9fce-b0d7257bd4d3" />
 
 Directory : /etc/thehive/application.conf
+
 <img width="241" height="211" alt="image" src="https://github.com/user-attachments/assets/ae7b3b4b-c84b-4248-a1a2-8cca37ba03ab" />
 
 <img width="243" height="52" alt="image" src="https://github.com/user-attachments/assets/0c34ced2-fad9-45ca-8490-486f05e82f23" />
@@ -267,14 +277,19 @@ Directory : /etc/thehive/application.conf
 ## configuring the filebeat and the wazuh index
 Configure Filebeat to forward Wazuh alerts to Elasticsearch, then create the index pattern in the Wazuh
 dashboard so events are searchable.
+
 <img width="973" height="857" alt="image" src="https://github.com/user-attachments/assets/d6ac9485-6d5f-4f98-b214-8b5e28961b2a" />
 
-creating the index
+### creating the index
 
 <img width="1034" height="642" alt="image" src="https://github.com/user-attachments/assets/4ab28fe2-94a0-4447-8c10-b0fd9dab7d48" />
+
 <img width="1234" height="363" alt="image" src="https://github.com/user-attachments/assets/cf6b3f7d-8489-421e-a8d6-799aa30d66a9" />
+
 <img width="658" height="676" alt="image" src="https://github.com/user-attachments/assets/1fe9113d-fc3f-46a9-8215-5ce21672f293" />
+
 <img width="935" height="278" alt="image" src="https://github.com/user-attachments/assets/2b373aba-35b6-40b1-b278-624897042f67" />
+
 <img width="685" height="352" alt="image" src="https://github.com/user-attachments/assets/e54b6ca1-c57e-4a25-88ff-9f9217495162" />
 
 <img width="988" height="724" alt="image" src="https://github.com/user-attachments/assets/1693d92e-dc35-4998-bc76-c6f068b46dce" />
@@ -282,17 +297,23 @@ creating the index
 
 
 ## Custom Detection Rules
+
 A common attacker evasion technique is renaming malicious executables to bypass filename-based
 detections.
 To improve resilience, custom Wazuh detection rules were written to identify suspicious behaviour and
 process characteristics rather than relying on executable names alone. This approach aligns with
 modern detection engineering practices.
+
 <img width="1015" height="174" alt="image" src="https://github.com/user-attachments/assets/182723f2-a62a-4154-b4eb-64f9cd6c0862" />
 
 <img width="1582" height="807" alt="image" src="https://github.com/user-attachments/assets/285e7f0f-fd4e-4652-857f-210fafa93483" />
+
 <img width="989" height="539" alt="image" src="https://github.com/user-attachments/assets/e8328f12-714b-4c33-9cfd-a9d44118eb1c" />
+
 <img width="824" height="557" alt="image" src="https://github.com/user-attachments/assets/e255e617-90d4-469a-829a-ee55abc8f634" />
+
 <img width="994" height="568" alt="image" src="https://github.com/user-attachments/assets/33829bfd-9b4c-40e9-856a-19d6c5f9f239" />
+
 <img width="963" height="733" alt="image" src="https://github.com/user-attachments/assets/3021241e-8438-4e6f-821c-48f4e12dc53c" />
 
 
@@ -308,21 +329,22 @@ Because of its prevalence in real-world attacks, it serves as an excellent tool 
 
 The following attack scenario was performed:
 
-Execute Mimikatz on the Windows endpoint.
-Sysmon records process activity.
-Wazuh receives the generated events.
-Detection rules identify suspicious behavior.
-Alerts are generated and forwarded to Shuffle.
+1. Execute Mimikatz on the Windows endpoint.
+2. Sysmon records process activity.
+3. Wazuh receives the generated events.
+4. Detection rules identify suspicious behavior.
+5. Alerts are generated and forwarded to Shuffle.
 
 ## Detection Challenge
 
 A common attacker evasion technique is renaming malicious tools to bypass detections that rely solely on filenames.
 
-To improve resilience against this technique, custom Wazuh detection rules were created to identify suspicious behavior and process characteristics rather than depending entirely on executable names.
+To improve resilience against this technique, custom Wazuh detection rules were created to identify suspicious behavior and process characteristics rather than depending entirely on executable names using the file original name.
 
 This approach aligns with modern detection engineering practices and improves detection coverage.
 
 ## SOAR Automation with Shuffle
+
 Why SOAR?
 
 In traditional SOC environments, analysts manually enrich alerts, gather context, create tickets, and notify stakeholders.
@@ -345,10 +367,12 @@ This enables automated processing of security events immediately after detection
 3. Configure Wazuh Manager to forward alerts to the webhook.
 4. Verify successful alert delivery.
 step 1: use the webhook , can copy the webhookurl
+
 <img width="1451" height="696" alt="image" src="https://github.com/user-attachments/assets/d2795441-99e7-4896-88db-d9cfd715a0b9" />
 
 
 step 2: modify wauzh manger ossec config file to connect to the webhook
+
 <img width="1012" height="705" alt="image" src="https://github.com/user-attachments/assets/6d0a4b0a-3386-4775-aad1-3f507dae3afb" />
 
 ### Step 2: Extract SHA256 Hashes
@@ -359,8 +383,11 @@ Shuffle uses Regular Expressions (Regex) to automatically extract SHA256 hashes 
 
 These hashes are then passed to threat intelligence services for enrichment.
 step 3: chaning the change me to refex capture group to extract the sha256
+
 <img width="646" height="561" alt="image" src="https://github.com/user-attachments/assets/83203005-f845-42d9-89cf-50527bcb630e" />
+
 ### Step 3: Threat Intelligence Enrichment
+
 Why VirusTotal?
 
 Security alerts often provide limited context.
@@ -370,15 +397,20 @@ VirusTotal enriches alerts by checking file hashes against multiple antivirus ve
 This helps analysts quickly determine whether a file has previously been identified as malicious.
 
 #### Configuration
+
 1. Obtain a VirusTotal API key.
 2. Configure authentication within Shuffle.
 3. Select the Get Hash Report action.
 4. Pass the extracted SHA256 hash.
 5. Validate successful enrichment.
 step4: connecting the regex to virus total and getting the report on the sha256 using the virus total api key.
+
 <img width="454" height="506" alt="image" src="https://github.com/user-attachments/assets/1a2b37db-da55-4bcc-bcb0-d41fd903b83f" />
+
 <img width="514" height="360" alt="image" src="https://github.com/user-attachments/assets/a0352ca3-b930-4e52-88ed-15435e6ae75d" />
+
 <img width="512" height="1105" alt="image" src="https://github.com/user-attachments/assets/8cd236fd-9b78-4094-8b75-703202a107e0" />
+
 <img width="852" height="670" alt="image" src="https://github.com/user-attachments/assets/7e502296-2010-491b-baf6-e37ef2c0da11" />
 
 
@@ -442,6 +474,7 @@ This improves response times and helps analysts prioritize investigations.
 <img width="190" height="268" alt="image" src="https://github.com/user-attachments/assets/64ee18d1-d5c3-4d14-a27d-4d3aaa055183" />
 
 <img width="452" height="259" alt="image" src="https://github.com/user-attachments/assets/5900ea3c-4f44-4443-97fc-7ce0765fc892" />
+
 <img width="224" height="116" alt="image" src="https://github.com/user-attachments/assets/aac769a3-48db-4089-8cd3-4664c55e7849" />
 
 <img width="428" height="159" alt="image" src="https://github.com/user-attachments/assets/13d58a01-8c66-4ece-8582-8a2ce527b050" />
